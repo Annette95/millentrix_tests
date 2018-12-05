@@ -6,7 +6,7 @@ class LoginPage extends BasePage {
     this.emailInput = element(by.id('email-field'));
     this.passwordInput = element(by.id('password-field'));
     this.signin = element(by.xpath('//button [@type="submit"]'));
-    this.signup = element(by.xpath ('button [type="button"]'));
+    this.signup = element(by.css ('body > div:nth-child(1) > ng-component > div > div > div > div > div > div > div:nth-child(3) > form > div:nth-child(4) > div > button'));
     this.confirmButton = element(by.partialButtonText('CONFIRM'));
     this.canvas = element(by.css('modal-container'));
 
@@ -25,7 +25,7 @@ class LoginPage extends BasePage {
     };
 
     this.signUp = () => {
-        signup.click();
+        this.signup.click();
       };
       
     this.clickCanvas = (toRight, toBottom) => {
@@ -36,7 +36,7 @@ class LoginPage extends BasePage {
       };
     
       this.confirmEmailResend = () => {
-        confirmButton.click();
+        this.confirmButton.click();
       };
 };
 

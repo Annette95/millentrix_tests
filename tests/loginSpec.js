@@ -14,8 +14,21 @@ describe("Login Test",  () => {
         browser.waitForAngularEnabled(false);
         browser.sleep(2000);
         expect(loginPage.userAccountName.getText()).toEqual('Acceptance Tester');
-       // expect(login_page.userAccountNumber.getText()).toContain('Account No: 68478');
+       // expect(loginPage.userAccountNumber.getText()).toContain('Account No: 68478');
 
     });
+
+    // it('Login with unverified email',() => {
+
+    // });
+
+    // it ('Sign up redirects to registration page', ()=> {
+    //     loginPage.signUp();
+    //    // browser.sleep(2000);
+    //     expect(loginPage.registrationPageIsDisplayed.getText()).toEqual('Open a Millentrix Account');
+    
+    // });
+
+
 });
 

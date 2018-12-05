@@ -20,6 +20,10 @@ class Registration extends BasePage{
     this.phoneNumberSubmit = element(by.css('strong'));
     this.codeInput = element(by.css('.code-box'));
     this.codeSubmit = element(by.css('strong'));
+
+    this.setFirstName = (name) =>{
+        this.firstNameInput
+    }
     };
 };
 
