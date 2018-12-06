@@ -22,12 +22,12 @@ describe("Login Test",  () => {
 
     // });
 
-    // it ('Sign up redirects to registration page', ()=> {
-    //     loginPage.signUp();
-    //    // browser.sleep(2000);
-    //     expect(loginPage.registrationPageIsDisplayed.getText()).toEqual('Open a Millentrix Account');
+    it ('Sign up redirects to registration page', ()=> {
+        loginPage.signUp();
+       // browser.sleep(2000);
+        expect(loginPage.registrationPageIsDisplayed.getText()).toEqual('Open a Millentrix Account');
     
-    // });
+    });
 
 
 });
