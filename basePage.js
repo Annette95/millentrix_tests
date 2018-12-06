@@ -11,7 +11,7 @@ export default class BasePage {
             'xl': 9000,
             'xxl': 15000
         };
-        
+
     }
     
      * //wait and verify that a page is loaded
