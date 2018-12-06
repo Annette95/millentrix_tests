@@ -13,7 +13,7 @@ exports.config = {
     browserName: 'chrome'
   },
     
-  specs: ['./tests/loginSpec.js'],
+  specs: ['./tests/registrationSpec.js'],
 
   suites: {
 
@@ -22,8 +22,10 @@ exports.config = {
     allScriptsTimeout: 60 * 60 * 1000,
     getPageTimeout: 5 * 60 * 1000,
     
+    
     onPrepare() {
       require("@babel/register")
+
     // global.requirePO = function (relativePath) {
     //   return require(`${basePath}/pages/${relativePath}.js`);
     // };

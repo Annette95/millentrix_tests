@@ -15,8 +15,6 @@ class LoginPage extends BasePage {
     this.userAccountNumber = element(by.css('.account-number'));
     this.userAccountName = element(by.css('div.fullname'));
 
-
-    
     
     this.login = function (email, password){
         this.emailInput.sendKeys(email);

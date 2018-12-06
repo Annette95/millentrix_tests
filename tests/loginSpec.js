@@ -1,3 +1,4 @@
+
 import loginPage from '../pages/loginPage';
 
 describe("Login Test",  () => {
@@ -8,7 +9,7 @@ describe("Login Test",  () => {
     
     it("Successful Login", () => {
         
-        loginPage.login('millentrix.tester@gmail.com', '!@#123QWEqwe')
+        loginPage.login('millentrix.tester@gmail.com', '!@#123QWEqwe');
         browser.sleep(2000);
         browser.refresh();
         browser.waitForAngularEnabled(false);

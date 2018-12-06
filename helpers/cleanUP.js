@@ -1,6 +1,6 @@
 const http = require('http');
 
-const CleanUp = function cleanUp() {
+this.cleanUp = function cleanUp() {
   this.clearDB = function clearDB(email) {
     const deferred = protractor.promise.defer();
 
@@ -31,4 +31,4 @@ const CleanUp = function cleanUp() {
   };
 };
 
-module.exports = CleanUp;
+export default new CleanUp;
