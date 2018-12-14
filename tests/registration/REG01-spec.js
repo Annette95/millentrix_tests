@@ -65,6 +65,6 @@ describe(" REG01 - Successful Registration ", () => {
     browser.sleep(2000);
     registrationPage.sendCode();
     browser.sleep(2000);
-    expect(EC.urlContains("dashboard"), 10000).toBe(true);
+    expect(EC.urlContains("dashboard"), 10000).toBe(true); //expected result
   });
 });

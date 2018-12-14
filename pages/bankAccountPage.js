@@ -29,7 +29,10 @@ class BankAccount {
     this.bankNameDisplay = element(
       by.xpath('//div/*[text()[contains(.,"MAIB")]]')
     );
-  }
+    this.bankNameNotDisplay = element.all(
+      by.css('div.overflow-hidden.bankNameHide')
+    ).last();
+  };
 
   //methods
   fillForm(baname, banumber, iban, swift, bname, baddress, bcountry) {

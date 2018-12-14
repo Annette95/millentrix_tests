@@ -15,6 +15,6 @@ describe("REG13 - User tried to register with existing email and failed registra
       );
       expect(registrationPage.invalidEmail.getText()).toEqual(
         "Please enter a valid email"
-      );
+      ); //expected result
     });
 });

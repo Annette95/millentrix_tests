@@ -55,7 +55,6 @@ describe("REG15 - User tried to register with existing phone number ", () => {
       browser.sleep(500);
       expect(registrationPage.duplicatePhoneNumber.getText()).toEqual(
         "Duplicate phone number"
-      );
-      browser.sleep(500);
+      ); //expected result
     });
   });

@@ -10,9 +10,9 @@ const iban = `FR${randomNumber(9)}`;
 const EC = protractor.ExpectedConditions;
 const wait = 1000;
 
-describe("Add bank account", () => {
+describe("BANK14 - User canceled bank account adding and returned to the list of existing bank accounts", () => {
 
-  it("BANK14 - User canceled bank account adding and returned to the list of existing bank accounts", () => {
+  it("User fills the bank form and cancels adding", () => {
     var FileToUpload = "../../helpers/files/Test3MB.jpg";
     browser.get("https://stage.millentrix.com/login/auth?norecaptcha=true");
     loginPage.login("millentrix.tester@gmail.com", "!@#123QWEqwe");
@@ -26,7 +26,7 @@ describe("Add bank account", () => {
       "789456456",
       iban,
       "333333",
-      "MAIB",
+      "AGRO",
       "StefanCelMare",
       "Moldova"
     );
@@ -38,7 +38,8 @@ describe("Add bank account", () => {
       EC.urlIs("https://stage.millentrix.com/myaccount/payments"),
       60 * 1000
     );
-    myAccountPage.logout();
     browser.sleep(wait);
+    expect(bankAccountPage.bankNameNotDisplay.getText()).not.toEqual("AGRO"); //expected result
+    myAccountPage.logout();
   });
 });

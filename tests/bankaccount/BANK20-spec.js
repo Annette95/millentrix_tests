@@ -9,9 +9,9 @@ const randomNumber = length =>
 const iban = `FR${randomNumber(9)}`;
 const wait = 1000;
 
-describe("Add bank account", () => {
+describe("BANK20 - User uploaded too large file of bank statement file(doc)", () => {
  
-  it("BANK20 - User uploaded too large file of bank statement file(doc)", () => {
+  it("User fills the form and uploaded too large file(doc))", () => {
     browser.get("https://stage.millentrix.com/login/auth?norecaptcha=true");
     var FileToUpload = "../../helpers/files/Biletydoc.docx";
     loginPage.login("millentrix.tester@gmail.com", "!@#123QWEqwe");

@@ -64,6 +64,6 @@ describe("REG16 - didn't approved email and wants to receive it repeatedly ", ()
       browser.sleep(2000);
       expect(loginPage.phoneVerificationPageDisplayed.getText()).toEqual(
         "Phone verification"
-      );
+      ); //expected result
     },30000);
   });

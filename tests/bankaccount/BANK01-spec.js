@@ -10,9 +10,9 @@ const iban = `FR${randomNumber(9)}`;
 const EC = protractor.ExpectedConditions;
 const wait = 1000;
 
-describe("Add bank account", () => {
+describe("BANK01 - Successful adding the bank", () => {
 
-  it("BANK01 - Successful adding the bank", () => {
+  it("User fills the form and submit the bank account", () => {
     var FileToUpload = "../../helpers/files/Test3MB.jpg";
     browser.get("https://stage.millentrix.com/login/auth?norecaptcha=true");
     loginPage.login("millentrix.tester@gmail.com", "!@#123QWEqwe");
@@ -39,8 +39,7 @@ describe("Add bank account", () => {
       60 * 1000
     );
     browser.sleep(wait);
-    bankAccountPage.bankNameDisplay.isPresent();
+    bankAccountPage.bankNameDisplay.isPresent(); //expected result
     myAccountPage.logout();
-    browser.sleep(wait);
   });
 });

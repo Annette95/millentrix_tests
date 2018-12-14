@@ -10,9 +10,9 @@ const iban = `FR${randomNumber(9)}`;
 const EC = protractor.ExpectedConditions;
 const wait = 1000;
 
-describe("Add bank account", () => {
+describe("BANK19 - User uploaded too large file of bank statement file(pdf)", () => {
 
-  it("BANK19 - User uploaded too large file of bank statement file(pdf)", () => {
+  it("User fills the form and uploaded too large file(pdf)", () => {
     browser.get("https://stage.millentrix.com/login/auth?norecaptcha=true");
     var FileToUpload = "../../helpers/files/BigPDFBook.pdf";
     loginPage.login("millentrix.tester@gmail.com", "!@#123QWEqwe");
@@ -35,7 +35,7 @@ describe("Add bank account", () => {
     browser.sleep(wait);
     expect(bankAccountPage.fileFieldValidation.getText()).toEqual(
       "Max. file size (5MB) exceeded"
-    );
+    ); //expected result
     myAccountPage.logout();
     browser.sleep(wait);
   });
