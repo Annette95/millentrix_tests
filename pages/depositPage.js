@@ -24,7 +24,7 @@ class DepositPage {
   bankTransfer() {
     this.bankTransferMenu.click();
   }
-  addButton() {
+  addBankAccount() {
     this.addBankButton.click();
   }
 

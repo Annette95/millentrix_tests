@@ -22,7 +22,7 @@ class PaymentsPage {
     this.EC = protractor.ExpectedConditions;
   }
 
-  addBank() {
+  addBankAccount() {
     this.addButton.click();
   }
 

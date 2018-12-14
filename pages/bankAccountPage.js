@@ -32,7 +32,7 @@ class BankAccount {
   }
 
   //methods
-  addBankAccount(baname, banumber, iban, swift, bname, baddress, bcountry) {
+  fillForm(baname, banumber, iban, swift, bname, baddress, bcountry) {
     this.bankAccountNameInput.sendKeys(baname);
     this.bankAccountNumberInput.sendKeys(banumber);
     this.ibanInput.sendKeys(iban);

@@ -11,12 +11,12 @@ exports.config = {
     browserName: "chrome"
   },
 
-  //specs: ['./tests/registrationSpec.js'],
+  specs: ['./tests/registration/REG16-spec.js'],
 
-  suites: {
-    registration: ["tests/registrationSpec.js"],
-    addBankAccount: ["tests/addBankAccountSpec.js"]
-  },
+  // suites: {
+  //   registration: ["tests/registrationSpec.js"],
+  //   addBankAccount: ["tests/addBankAccountSpec.js"]
+  // },
 
   allScriptsTimeout: 60 * 60 * 1000,
   getPageTimeout: 5 * 60 * 1000,
