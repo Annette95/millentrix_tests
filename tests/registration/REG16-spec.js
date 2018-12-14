@@ -25,7 +25,7 @@ describe("REG16 - didn't approved email and wants to receive it repeatedly ", ()
       );
       browser.sleep(2000);
       expect(registrationPage.succesfulRegistered.isPresent()).toBe(true);
-    });
+    },30000);
 
     it("REG16 is trying to log in without email confirmation", () => {
       browser.get("https://stage.millentrix.com/login/auth?norecaptcha=true");
@@ -39,7 +39,7 @@ describe("REG16 - didn't approved email and wants to receive it repeatedly ", ()
       expect(loginPage.signInPageDisplayed.getText()).toEqual(
         "Sign in to millentrix"
       );
-    });
+    },30000);
 
     it("REG16- goes by link from email box", () => {
       // mail listener start
@@ -65,5 +65,5 @@ describe("REG16 - didn't approved email and wants to receive it repeatedly ", ()
       expect(loginPage.phoneVerificationPageDisplayed.getText()).toEqual(
         "Phone verification"
       );
-    });
+    },30000);
   });
