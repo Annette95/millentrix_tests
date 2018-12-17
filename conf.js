@@ -11,7 +11,7 @@ exports.config = {
     browserName: "chrome"
   },
 
-  specs: ['./tests/bankaccount/BANK14-spec.js'],
+  specs: ['./tests/login/*-spec.js'],
 
   // suites: {
   //   registration: ["tests/registrationSpec.js"],
