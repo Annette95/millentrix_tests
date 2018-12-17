@@ -1,92 +1,92 @@
 require("babel-register")({
-  presets: [ 'es2015' ]
+  presets: ["es2015"]
 });
 require("babel-polyfill");
 
 exports.config = {
-
-  
-  framework: 'jasmine',
-  seleniumAddress: 'http://localhost:4444/wd/hub',
+  framework: "jasmine",
+  seleniumAddress: "http://localhost:4444/wd/hub",
 
   capabilities: {
-    browserName: 'chrome'
+    browserName: "chrome"
   },
-    
-  specs: ['./tests/registrationSpec.js'],
 
-  suites: {
+  specs: ['./tests/bankaccount/BANK14-spec.js'],
 
-  },
- 
-    allScriptsTimeout: 60 * 60 * 1000,
-    getPageTimeout: 5 * 60 * 1000,
-    
-    
-    onPrepare() {
-      require("@babel/register")
+  // suites: {
+  //   registration: ["tests/registrationSpec.js"],
+  //   addBankAccount: ["tests/addBankAccountSpec.js"]
+  // },
 
-    global.requirePO = function (relativePath) {
+  allScriptsTimeout: 60 * 60 * 1000,
+  getPageTimeout: 5 * 60 * 1000,
+
+  onPrepare() {
+    browser.driver
+      .manage()
+      .window()
+      .maximize();
+    require("@babel/register");
+
+    global.requirePO = function(relativePath) {
       return require(`${basePath}/pages/${relativePath}.js`);
     };
-    
-    global.requireHelper = function (relativePath) {
+
+    global.requireHelper = function(relativePath) {
       return require(`${basePath}/helpers/${relativePath}.js`);
     };
 
     global.basePath = `${__dirname}`;
 
-    const MailListener = require('mail-listener4');
+    const MailListener = require("mail-listener4");
 
     const mailListener = new MailListener({
-      username: 'millentrix.tester@gmail.com', // email or userName
-      password: '!@12QWqw', // password
-      host: 'imap.gmail.com', // e.g. imap.gmail.com
+      username: "millentrix.tester@gmail.com", // email or userName
+      password: "!@12QWqw", // password
+      host: "imap.gmail.com", // e.g. imap.gmail.com
       port: 993,
       tls: true,
       fetchUnreadOnStart: true,
       markSeen: true
     });
-    
-    mailListener.on('server:connected', () => {
-      console.log('imapConnected');
+
+    mailListener.on("server:connected", () => {
+      console.log("imapConnected");
     });
-    mailListener.on('server:disconnected', () => {
-      console.log('imapDisconnected');
+    mailListener.on("server:disconnected", () => {
+      console.log("imapDisconnected");
     });
-    mailListener.on('error', (err) => {
+    mailListener.on("error", err => {
       console.log(err);
     });
 
     let count = 0;
-    mailListener.on('mail', (mail, seqno, attributes) => {
+    mailListener.on("mail", (mail, seqno, attributes) => {
       const mailuid = attributes.uid;
-      const toMailbox = '[Gmail]/All Mail';
+      const toMailbox = "[Gmail]/All Mail";
       const i = ++count;
       if (i > 3) {
         mailListener.stop(); // start listening
       }
     });
 
-
     mailListener.start(); // start listening
     setTimeout(() => {
-      mailListener.stop(); // start listening
+      mailListener.stop(); // stop listening
     }, 60000 * 15);
 
     global.mailListener = mailListener;
   },
 
-
   params: {
     getLastEmail() {
       const deferred = protractor.promise.defer();
-      console.log('Waiting for email...');
+      console.log("Waiting for email...");
 
       let count = 0;
-      mailListener.on('mail', (mail, seqno, attributes) => {
+      mailListener.on("mail", (mail, seqno, attributes) => {
         const mailuid = attributes.uid;
-        const toMailbox = '[Gmail]/All Mail';
+        const toMailbox = "[Gmail]/All Mail";
         const i = ++count;
         if (i > 3) {
           mailListener.stop(); // stop listening
@@ -98,6 +98,5 @@ exports.config = {
       return deferred.promise;
     },
     basePath: `${__dirname}`
-  },
+  }
 };
- 

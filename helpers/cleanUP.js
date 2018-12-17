@@ -1,34 +1,33 @@
-const http = require('http');
+import http from "http";
 
-const CleanUp = function cleanUp() {
-  this.clearDB = function clearDB(email) {
-    const deferred = protractor.promise.defer();
-
-    const options = {
-      hostname: '34.249.214.138',
+class CleanUp {
+  constructor() {
+    this.deferred = protractor.promise.defer();
+    this.options = {
+      hostname: "34.249.214.138",
       port: 7080,
-      path: '/api/clean/user',
-      method: 'POST',
+      path: "/api/clean/user",
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json"
       }
     };
-
-    const callback = function callback(res, err) {
-      console.log('res :', res.statusCode);
-      console.log('err :', err);
-      deferred.fulfill();
-    };
-
-    const req = http.request(options, callback);
-
-    req.write(JSON.stringify({
-      email,
-    }));
+  }
+  clearDB(email) {
+    const req = http.request(this.options, (res, err) => {
+      console.log("res :", res.statusCode);
+      console.log("err :", err);
+      this.deferred.fulfill();
+    });
+    req.write(
+      JSON.stringify({
+        email
+      })
+    );
     req.end();
 
-    return deferred.promise;
-  };
-};
+    return this.deferred.promise;
+  }
+}
 
-export default new CleanUp;
+export default new CleanUp();
