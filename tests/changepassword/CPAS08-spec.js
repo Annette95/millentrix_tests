@@ -20,7 +20,8 @@ describe("CPAS08 - User makes a mistake and introduces wrong data in field 'Plea
     browser.sleep(wait);
     securityPage.changePassword();
     browser.sleep(wait);
-    changePasswordPage.invalidCurrentPassword("123Aa!1234", "123456aK*", "123456aK*");//wrong current password is introduced
+    changePasswordPage.fillFormChangePassword("123Aa!1234", "123456aK*", "123456aK*");//wrong current password is introduced
+    changePasswordPage.submit();
     browser.sleep(wait);
     expect(changePasswordPage.errorMessage.getText()).toEqual("Wrong password");
     changePasswordPage.cancel();

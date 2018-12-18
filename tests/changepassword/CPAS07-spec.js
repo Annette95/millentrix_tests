@@ -20,7 +20,8 @@ describe("CPAS07 - User makes a mistake and introduces wrong data in field 'Veri
     browser.sleep(wait);
     securityPage.changePassword();
     browser.sleep(wait);
-    changePasswordPage.invalidVerifyPassword("!@#123QWEqwe", "123456aK*", "123456aK*1111"); //wrong password is introduced
+    changePasswordPage.fillFormChangePassword("!@#123QWEqwe", "123456aK*", "123456aK*1111"); //wrong password is introduced
+    changePasswordPage.submit();
     browser.sleep(wait);
     expect(changePasswordPage.errorMessage.getText()).toEqual("Password not matched");
     changePasswordPage.cancel();

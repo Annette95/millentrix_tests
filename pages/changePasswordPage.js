@@ -10,35 +10,15 @@ class ChangePassword {
         this.errorMessage = element(by.css("small.text-danger.ng-star-inserted"));
 
     };
-    changePasswordValidData(password, newpassword){
+
+    fillFormChangePassword(password, newpassword, verifynewpassword) {
         this.currentPasswordField.sendKeys(password);
         this.newPasswordField.sendKeys(newpassword);
-        this.verifyNewPasswordField.sendKeys(newpassword);
-        this.changePasswordSubmit.click();
-        
+        this.verifyNewPasswordField.sendKeys(verifynewpassword);
     };
 
-    cancelChangePassword (password, newpassword) {
-        this.currentPasswordField.sendKeys(password);
-        this.newPasswordField.sendKeys(newpassword);
-        this.verifyNewPasswordField.sendKeys(newpassword);
-        this.cancelChangePasswordButton.click();
-
-    };
-
-    invalidVerifyPassword (password, newpassword, invalidpassword){
-        this.currentPasswordField.sendKeys(password);
-        this.newPasswordField.sendKeys(newpassword);
-        this.verifyNewPasswordField.sendKeys(invalidpassword);
-        this.changePasswordSubmit.click();
-
-    };
-
-    invalidCurrentPassword (password, newpassword, invalidpassword){
-        this.currentPasswordField.sendKeys(password);
-        this.newPasswordField.sendKeys(newpassword);
-        this.verifyNewPasswordField.sendKeys(invalidpassword);
-        this.changePasswordSubmit.click();
+    submit(){
+        this.changePasswordSubmit.click()   
     };
 
     cancel (){

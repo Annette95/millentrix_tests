@@ -21,7 +21,8 @@ describe("CPAS05 - User filled all necessary fields but canceled the changes", (
     browser.sleep(wait);
     securityPage.changePassword();
     browser.sleep(wait);
-    changePasswordPage.cancelChangePassword("!@#123QWEqwe", "123456aK*");
+    changePasswordPage.fillFormChangePassword("!@#123QWEqwe", "123456aK*", "123456aK*");
+    changePasswordPage.cancel();
     browser.sleep(wait);
     myAccountPage.logout();
     browser.sleep(wait);

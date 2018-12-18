@@ -21,7 +21,8 @@ describe("CPAS01 - User successfully changed password", () => {
     browser.sleep(wait);
     securityPage.changePassword();
     browser.sleep(wait);
-    changePasswordPage.changePasswordValidData("!@#123QWEqwe", "123456aK*");
+    changePasswordPage.fillFormChangePassword("!@#123QWEqwe", "123456aK*", "123456aK*");
+    changePasswordPage.submit();
     browser.sleep(wait);
     changePasswordPage.ok();
     browser.sleep(wait);
@@ -53,7 +54,8 @@ describe("CPAS01 - User successfully changed password", () => {
     browser.sleep(wait);
     securityPage.changePassword();
     browser.sleep(wait);
-    changePasswordPage.changePasswordValidData("123456aK*", "!@#123QWEqwe");
+    changePasswordPage.fillFormChangePassword("123456aK*", "!@#123QWEqwe","!@#123QWEqwe");
+    changePasswordPage.submit();
     browser.sleep(wait);
     changePasswordPage.ok();
     browser.sleep(wait);
