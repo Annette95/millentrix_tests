@@ -11,6 +11,11 @@ class LoginPage {
     this.phoneVerificationPageDisplayed = element(
       by.css("h4.text-center.mb-4")
     );
+    this.textInvalidInformationDisplay = element(
+      by.css(".alert-48")
+
+    );
+    this.restrictedCountry = element (by.css("div.service-not-supported.mb-3"));
   }
 
   //methods
