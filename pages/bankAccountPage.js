@@ -1,3 +1,5 @@
+const EC = protractor.ExpectedConditions;
+
 class BankAccount {
   constructor() {
     this.bankAccountNameInput = element(
@@ -23,6 +25,10 @@ class BankAccount {
     this.addAccountButton = element(
       by.xpath('(//div/button[@type="submit"])[2]')
     );
+
+    // this.addAccountButton = element(
+    //   by.partialButtonText('ADD ACCOUNT')
+    // );
     this.cancelButton = element(
       by.xpath('(//div/*[text()[contains(.,"CANCEL")]])[last()]')
     );
@@ -36,6 +42,8 @@ class BankAccount {
 
   //methods
   fillForm(baname, banumber, iban, swift, bname, baddress, bcountry) {
+    browser.get("https://stage.millentrix.com/myaccount/payments/addbank");
+    browser.wait(EC.presenceOf(this.bankAccountNameInput), 3000);
     this.bankAccountNameInput.sendKeys(baname);
     this.bankAccountNumberInput.sendKeys(banumber);
     this.ibanInput.sendKeys(iban);
@@ -43,6 +51,7 @@ class BankAccount {
     this.bankNameInput.sendKeys(bname);
     this.bankAddressInput.sendKeys(baddress);
     this.countryDropdown.sendKeys(bcountry);
+  
   }
 
   submit() {

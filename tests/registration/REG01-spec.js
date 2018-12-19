@@ -18,7 +18,6 @@ describe(" REG01 - Successful Registration ", () => {
   });
 
   xit("REGO1 - user fills the form and email is sent", () => {
-    browser.get("https://stage.millentrix.com/register?norecaptcha=true");
     registrationPage.registerNewUser(
       "Acceptance",
       "Tester",
@@ -27,8 +26,8 @@ describe(" REG01 - Successful Registration ", () => {
       password,
       "France"
     );
-    browser.sleep(2000);
     browser.waitForAngularEnabled(false);
+    browser.sleep(2000);
     expect(registrationPage.succesfulRegistered.isPresent()).toBe(true);
   });
 
@@ -50,8 +49,7 @@ describe(" REG01 - Successful Registration ", () => {
       });
 
     loginPage.closeConfPopUp();
-    browser.sleep(2000);
-    loginPage.login(email, password);
+    loginPage.newLogin(email, password);
     browser.sleep(2000); // in order to wait for country prefix
     registrationPage.phoneVerify("644648536");
     browser.sleep(waitForSMS);

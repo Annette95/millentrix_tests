@@ -1,3 +1,7 @@
+import Registration from "../pages/registrationPage"
+
+var EC = protractor.ExpectedConditions;
+
 class LoginPage {
   constructor() {
     this.emailInput = element(by.id("email-field"));
@@ -15,23 +19,46 @@ class LoginPage {
       by.css(".alert-48")
 
     );
-    this.restrictedCountry = element (by.css("div.service-not-supported.mb-3"));
+    this.restrictedCountry = element(by.css("div.service-not-supported.mb-3"));
+    this.acceptCookie = element(by.partialButtonText('got it'));
   }
 
   //methods
 
   login(email, password) {
+    browser.get("https://stage.millentrix.com/login/auth?norecaptcha=true");
+    this.emailInput.sendKeys(email);
+    this.passwordInput.sendKeys(password);
+    this.signin.click();
+    browser.sleep(2000);
+    browser.refresh();
+    browser.waitForAngularEnabled(false);
+    browser.sleep(2000);
+    this.acceptCookie.click();
+  }
+
+  newLogin(email, password) {
     this.emailInput.sendKeys(email);
     this.passwordInput.sendKeys(password);
     this.signin.click();
   }
 
+  negativeLogin(email,password){
+    browser.get("https://stage.millentrix.com/login/auth?norecaptcha=true");
+    this.emailInput.sendKeys(email);
+    this.passwordInput.sendKeys(password);
+    this.signin.click();
+    browser.sleep(2000);
+  }
+
   signUp() {
     this.signup.click();
+    browser.wait(EC.presenceOf(Registration.registrationPageIsDisplayed), 2000);
   }
 
   closeConfPopUp() {
     this.popUp.click();
+    browser.sleep(1000);
   }
 
   confirmEmailResend() {

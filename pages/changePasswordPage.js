@@ -1,3 +1,6 @@
+import MyAccountPage from "../pages/myAccountPage"
+var EC = protractor.ExpectedConditions;
+
 class ChangePassword {
     constructor(){
 
@@ -6,7 +9,7 @@ class ChangePassword {
         this.verifyNewPasswordField = element(by.xpath('//div/input[@formcontrolname="confirm"]'))
         this.changePasswordSubmit = element(by.partialButtonText('Change password'));
         this.cancelChangePasswordButton = element(by.partialButtonText('CANCEL'));
-        this.successButton = element(by.partialButtonText('OK, GOT IT'));
+        this.successPopUp = element(by.css("div.success.text-bold"));
         this.errorMessage = element(by.css("small.text-danger.ng-star-inserted"));
 
     };
@@ -17,17 +20,27 @@ class ChangePassword {
         this.verifyNewPasswordField.sendKeys(verifynewpassword);
     };
 
+    
+    trySubmit(){
+        this.changePasswordSubmit.click();
+        browser.wait(EC.presenceOf(this.errorMessage), 3000);
+    }
+
     submit(){
         this.changePasswordSubmit.click()   
+        browser.wait(EC.presenceOf(this.successPopUp), 3000);
     };
 
     cancel (){
-        this.cancelChangePasswordButton.click()
+        this.cancelChangePasswordButton.click();
+        browser.wait(EC.presenceOf(MyAccountPage.logoutButton), 3000);
     };
 
-    ok(){
-        this.successButton.click();
-    };
+    refresh (){
+        browser.refresh();
+        browser.wait(EC.presenceOf(MyAccountPage.logoutButton), 2000);
+    }
+
 
 };
 

@@ -11,7 +11,7 @@ exports.config = {
     browserName: "chrome"
   },
 
-  specs: ['./tests/changepassword/*-spec.js'],
+  specs: ['./tests/registration/REG16-spec.js'],
 
   // suites: {
   //   registration: ["tests/registrationSpec.js"],
@@ -36,6 +36,7 @@ exports.config = {
       return require(`${basePath}/helpers/${relativePath}.js`);
     };
 
+  
     global.basePath = `${__dirname}`;
 
     const MailListener = require("mail-listener4");
@@ -99,4 +100,5 @@ exports.config = {
     },
     basePath: `${__dirname}`
   }
+
 };

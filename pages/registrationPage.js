@@ -1,4 +1,4 @@
-import { browser } from "protractor";
+import MenuPage from "../pages/menuAccount";
 
 class Registration {
   constructor() {
@@ -45,6 +45,7 @@ class Registration {
 
   //methods
   registerNewUser(fname, lname, nemail, npassword, rpassword, country) {
+    browser.get("https://stage.millentrix.com/register?norecaptcha=true");
     this.firstNameInput.sendKeys(fname);
     this.lastNameInput.sendKeys(lname);
     this.emailInput.sendKeys(nemail);
