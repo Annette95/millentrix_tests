@@ -11,7 +11,7 @@ exports.config = {
     browserName: "chrome"
   },
 
-  specs: ['./tests/registration/REG16-spec.js'],
+  specs: ['./tests/login/LOG04-spec.js'],
 
   // suites: {
   //   registration: ["tests/registrationSpec.js"],

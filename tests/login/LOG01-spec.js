@@ -4,7 +4,7 @@ import menuAccount from "../../pages/menuAccount";
 
 describe("Login Test", () => {
   it("LOG01 - Successful Login", () => {
-    loginPage.login("millentrix.tester@gmail.com", "!@#123QWEqwe");
+    loginPage.login("millentrix.tester@gmail.com", "123456aK*");
     expect(menuAccount.userAccountName.getText()).toEqual("Acceptance Tester");
     myAccountPage.myAccount();
     myAccountPage.logout();
